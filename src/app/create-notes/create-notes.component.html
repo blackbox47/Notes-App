@@ -1,0 +1,41 @@
+<div class="container">
+    <span>{{ allNotes.length }} Notes</span>
+    <button type="button" class="btn btn-info" (click)="openModal()" style="float: right;">Create Note</button>
+</div>
+
+<div class="modal" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Enter Your Note</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form #f="ngForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input #title="ngModel" ngModel placeholder="title.." name="title" id="title" type="text"
+                            class="form-control" required>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                        <div *ngIf="title.errors.required">Title is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Your Note</label>
+                        <textarea #content="ngModel" ngModel class="form-control" name="content" id="content" cols="30"
+                            rows="10" placeholder="Your Notes.." required></textarea>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
+                        <div *ngIf="content.errors.required">Please Fill up your Notes.</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+                <button [disabled]="f.invalid" type="button" class="btn btn-primary" (click)="createNotes(f.value)">Add
+                    Note</button>
+            </div>
+        </div>
+    </div>
+</div>

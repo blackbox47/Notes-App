@@ -1,0 +1,25 @@
+.container{
+    padding: 50px 0px;
+}
+
+.card{
+    margin-bottom: 10px;
+}
+
+.card img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.notFound img{
+    width: 100px;
+    height: 100px;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+    /* color: rgb(157, 160, 157); */
+}

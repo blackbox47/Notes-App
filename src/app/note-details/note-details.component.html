@@ -1,0 +1,14 @@
+<div class="card">
+    <div style="padding: 20px;">
+        <img class="card-img-top" src="../../assets/angular.png">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{note.title}}</h5>
+        <p class="card-text">{{note.content }}</p>
+        <button (click)="delete(note.id)" class="btn btn-danger">Delete Note</button>
+        <a style="float: right;" routerLink="/">Main Page...</a>
+    </div>
+    <div class="card-footer">
+        {{ note.time | timeAgo }}
+    </div>
+</div>
