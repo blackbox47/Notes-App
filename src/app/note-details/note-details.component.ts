@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import notes from '../notes.data';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'note-details',
@@ -11,17 +10,15 @@ import { ToastrService } from 'ngx-toastr';
 export class NoteDetailsComponent implements OnInit {
   noteId;
   note;
-  constructor(private route: ActivatedRoute, private router: Router, private toastr: ToastrService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.noteId = this.route.snapshot.paramMap.get("id");
-    this.note = notes[this.noteId - 1];
-  }
-
-  delete(id) {
-    console.log(notes);
-    notes.splice(id - 1, 1);
-    this.toastr.success('', 'Notes deleted Successfully!');
-    this.router.navigate(['/']);
+    for (let index = 0; index < notes.length; index++) {
+      if (notes[index].id === parseInt(this.noteId)) {
+        this.note = notes[index];
+        break;
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import notes from './notes.data';
+import notes from '../notes.data';
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,19 @@
+<div class="card">
+    <div style="padding: 20px;">
+        <img class="card-img-top" src="../../assets/angular.png">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{note.title}}</h5>
+        <div *ngIf="!isDetail; else otherWise">
+            <p class="card-text">{{note.content | summary:300}}</p>
+            <button type="button" class="btn {{buttonType}}" (click)="navigateOtherPage(note)">{{ buttonName }}</button>
+        </div>
+        <ng-template #otherWise>
+            <p class="card-text">{{note.content }}</p>
+            <button type="button" class="btn {{buttonType}}" (click)="delete(note)">{{ buttonName }}</button>
+        </ng-template>
+    </div>
+    <div class="card-footer">
+        {{ note.time | timeAgo }}
+    </div>
+</div>

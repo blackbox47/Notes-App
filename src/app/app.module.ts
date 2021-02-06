@@ -6,15 +6,16 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateNotesComponent } from './create-notes/create-notes.component';
-import { CreateNotesService } from './create-notes.service';
+import { CreateNotesService } from './services/create-notes.service';
 import { ShowNotesComponent } from './show-notes/show-notes.component';
-import { TimeAgoPipe } from './time-ago.pipe';
-import { SummaryPipe } from './summary.pipe';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { SummaryPipe } from './pipes/summary.pipe';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardViewComponent } from './card-view/card-view.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TimeAgoPipe,
     SummaryPipe,
     NoteDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    CardViewComponent
   ],
   imports: [
     BrowserModule,

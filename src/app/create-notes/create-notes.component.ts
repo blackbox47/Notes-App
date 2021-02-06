@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CreateNotesService } from '../create-notes.service';
+import { Component } from '@angular/core';
+import { CreateNotesService } from '../services/create-notes.service';
 import notes from '../notes.data';
 
 @Component({

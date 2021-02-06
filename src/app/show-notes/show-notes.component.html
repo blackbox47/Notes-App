@@ -1,19 +1,8 @@
 <div *ngIf="allNotes.length>0; else otherWise;" class="container">
-    <div *ngFor="let note of allNotes.slice().reverse()">
-        <div class="card">
-            <div style="padding: 20px;">
-                <img class="card-img-top" src="../../assets/angular.png">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{note.title}}</h5>
-                <p class="card-text">{{note.content | summary:300 }}</p>
-                <button type="button" class="btn btn-info btn-lg" routerLink="/notes/{{note.id}}">Show
-                    Details</button>
-            </div>
-            <div class="card-footer">
-                {{ note.time | timeAgo }}
-            </div>
-        </div>
+    <div *ngFor="let note of allNotes">
+        <card-view [card-data]="note" [button-name]="'Show Details'" [button-type]="'btn-info btn-lg'"
+            [isDetail]="false">
+        </card-view>
     </div>
 </div>
 
@@ -24,26 +13,3 @@
     </div>
 
 </ng-template>
-
-
-
-<!-- Modal Starts -->
-<!-- <div class="modal" role="dialog" [ngStyle]="{'display':display}">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">{{ note.title }}</h4>
-                                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
-                                        aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                {{ note.content }}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
-                                <button type="button" class="btn btn-primary">Delete Note</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-<!-- Modal Ends -->

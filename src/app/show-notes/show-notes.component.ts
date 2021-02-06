@@ -7,6 +7,7 @@ import notes from '../notes.data';
   styleUrls: ['./show-notes.component.css']
 })
 export class ShowNotesComponent implements OnInit {
+
   allNotes = notes;
   constructor() { }
 
